@@ -5,7 +5,8 @@ This project is an introduction to python and contains tasks that focused on
   * How to use strings
   * What are indexing and slicing in Python
 
-####Tasks
+####         Tasks
+
 0. Shell script that runs a Python script.
 The Python file name will be saved in the environment variable $PYFILE
 
