@@ -1,12 +1,12 @@
 ###    Python - Hello World
-This project is an introduction to python and contains task that focused on
+This project is an introduction to python and contains tasks that focused on
   * How to use the Python interpreter
   * How to print text and variables using print
   * How to use strings
   * What are indexing and slicing in Python
 
 ####Tasks
- Shell script that runs a Python script.
+0. Shell script that runs a Python script.
 The Python file name will be saved in the environment variable $PYFILE
 
 1. Write a Shell script that runs Python code.
@@ -64,7 +64,7 @@ The Python code will be saved in the environment variable $PYCODE
 9. Write a Python script that prints “The Zen of Python”, by TimPeters, followed by a new line.
 
    * Your script should be maximum 98 characters long (please check with wc -m 9-easter_egg.py)
-##### 10. Technical interview preparation:
+10. **Technical interview preparation:**
 
     * You are not allowed to google anything
     * Whiteboard first
