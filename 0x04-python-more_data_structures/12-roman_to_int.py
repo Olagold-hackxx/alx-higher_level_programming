@@ -13,8 +13,9 @@ def roman_to_int(roman_string):
         'D': 500,
         'M': 1000}
     value = 0
+    r_str = roman_string
     for i in range(len(roman_string)):
-        if i + 1 < len(roman_string) and ro_num[roman_string[i]] < ro_num[roman_string[i+1]]:
+        if i + 1 < len(r_str) and ro_num[r_str[i]] < ro_num[r_str[i+1]]:
             value -= ro_num[roman_string[i]]
         else:
             value += ro_num[roman_string[i]]
