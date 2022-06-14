@@ -35,8 +35,8 @@ class Square:
         Arg:
             size (int): size of square
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -58,8 +58,7 @@ class Square:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     @property
     def position(self):
@@ -76,10 +75,9 @@ class Square:
             position (tuple): position of square
         if position is not a tuple of 2 positive int raise TypeError
         """
-        if (not isinstance(value, tuple) or
-                len(value) != 2 or
-                not all(isinstance(i, int) for i in value) or
-                value[0] < 0 or value[1] < 0):
+        if ((type(value) != tuple) or (len(value) != 2) or
+           (type(value[0]) != int) or (type(value[1]) != int) or
+               (value[0] < 0) or (value[1] < 0)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
