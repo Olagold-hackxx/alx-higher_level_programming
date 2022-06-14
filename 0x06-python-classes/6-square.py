@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-
+""" Coordinates of a square """
 class Square:
     """
-    Access and update private attributes
+    Print coordinates of a square and the square in space and #
     Private instance attribute: XXXX
     property def size(self): to retrieve it
     property setter def size(self, value): to set it:

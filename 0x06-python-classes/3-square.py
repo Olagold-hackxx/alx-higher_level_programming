@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Area of square
+"""
 class Square:
     """
     Calculate area of a square.

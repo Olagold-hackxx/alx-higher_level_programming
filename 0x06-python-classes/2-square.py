@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Size Validation
+"""
 class Square:
     """
     Validates size of square
