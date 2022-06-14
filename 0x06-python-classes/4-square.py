@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Access and update private attributes """
+
 class Square:
     """
     Access and update private attributes
