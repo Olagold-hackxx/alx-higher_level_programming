@@ -3,6 +3,7 @@
 Size Validation
 """
 
+
 class Square:
     """
     Validates size of square

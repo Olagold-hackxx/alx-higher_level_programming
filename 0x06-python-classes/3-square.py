@@ -3,6 +3,7 @@
 Area of square
 """
 
+
 class Square:
     """
     Calculate area of a square.
