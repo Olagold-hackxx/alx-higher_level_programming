@@ -1,0 +1,1 @@
+Class ans static methods

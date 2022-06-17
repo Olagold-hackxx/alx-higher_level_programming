@@ -1,0 +1,119 @@
+=============================
+How to use 0-add_integer Module
+==============================                                       
+                                                                     
+This is a simple module that adds 2 numbers - integers or floats     
+                                                                     
+Functions                                                            
+=============                                                        
+This module contains only one function, ``add_integer``              
+                                                                     
+Usage of ``add_integer``                                             ======================
+                                            
+``add_integer`` returns the sum of the two arguments. For numbers, 
+that value is equivalent to ``+`` operator.
+To use this function, you have to import this module - 0-add_integer
+
+::
+                           
+     >>> add_integer = __import__('0-add_integer').add_integer
+
+     >>> add_integer(2, 50)
+     52
+
+     >>> add_integer(5, 8)                               
+     13
+
+You can pass only one argument since the argument ``b`` has a default = 98
+
+::
+
+     >>> add_integer(2)
+     100
+
+     >>> add_integer(102)
+     200
+
+``add_integer`` can also receive negative numbers as arguments
+
+::
+    >>> add_integer(-5, 8)
+    3
+
+    >>> add_integer(-2, -7)
+    -9
+
+Arguments can be in floats
+
+::
+
+    >>> add_integer(5.2, 4.8)
+    9
+
+    >>> add_integer(-7.5, 14.5)
+    7
+
+Errors
+=========
+
+If the arguments are neither int nor float, TypeError is raised
+Passing following types of args gives TypeErrors
+
+String
+--------
+
+::
+    
+    >>> add_integer(5, "Two")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+Lists
+------
+::
+    >>> add_integer([1, 2], 8)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+Tuples
+------
+
+::
+     >>> add_integer(7, (5,9))
+     Traceback (most recent call last):
+     TypeError: b must be an integer
+
+Other Errors
+=============
+
+The function requores at least an argument to execute
+dd_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+If parameter 'b' is None
+
+::
+    >>> add_integer(2.3, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+Cannot convert float NaN to integer
+
+ ::
+    >>> add_integer(float('NaN'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+
+If the function receives as parameter float('inf')
+
+::
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(-float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
