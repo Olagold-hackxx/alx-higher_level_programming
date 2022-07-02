@@ -1,0 +1,180 @@
+=============================                                        
+How to use 2-matrix_divided Module                                      
+==============================                                       
+                                                                     
+This is a simple module that divide all numbers - integers or floats in a matrix by ``div``    
+                                                                     
+Functions                                                            
+=============                                                        
+This module contains only one function, 
+``matrix_divided``
+
+Prototype: def matrix_divided(matrix, div)          
+                                                                     
+Usage of ``matrix_divided``                                             
+======================                                               
+                                                                     
+``matrix_divided`` returns the quotient of the values in the matrix when divided by the arg ``div`` , in a float of 2 decimal place. Basically, this function does:
+__________________
+|a/div b/div c/div  |
+|x/div y/div z/div  |
+|p/div q/div r/div  |
+__________________
+where div is the arg ``div``which serves as the divisor and a   b  c
+represent the arg ``matrix``   				    x   y   z
+                    					    p   q   r
+                         
+To use this function, you have to import this module - 2-matrix_divided
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ...     [5, 63, 12],
+    ...     [6, 3, 56]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    [[1.67, 21.0, 4.0], [2.0, 1.0, 18.67]]
+      
+
+The function accepts that negative divisors
+
+::
+    >>> print(matrix_divided(matrix, -8))
+    [[-0.62, -7.88, -1.5], [-0.75, -0.38, -7.0]]
+
+The divisor can be a floating number
+
+::
+
+    >>> print(matrix_divided(matrix, 5.3))
+    [[0.94, 11.89, 2.26], [1.13, 0.57, 10.57]]
+
+
+The matrix can be composed of several lists, as long as they are of the same length
+
+::
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ...     [5, 63, 0],
+    ...     [6, 3, 56],
+    ...     [8, 23, 5],
+    ...     [21, 54, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, 7.8))
+    [[0.64, 8.08, 0.0], [0.77, 0.38, 7.18], [1.03, 2.95, 0.64], [2.69, 6.92, 0.77]]
+
+Matrix divide float('inf')
+
+::
+    >>> matrix = [
+    ...     [5, 63, 0],
+    ...     [6, 3, 56],
+    ...     [8, 23, 5],
+    ...     [21, 54, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, float('inf')))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+
+=========
+Errors
+=========
+
+matrix can't be divided by 0
+
+>>> matrix = [[1, 2],[4, 5]]
+>>> print(matrix_divided(matrix, 0))
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+::
+matrix must contain only integers or floats
+
+>>> matrix = [[1, "a", 3],[4, 5, 6]]
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+matrix must have same number of rows and columns
+
+>>> matrix = [[1, 2, 3],[4, 5, 6, 3]]
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+::
+arg ``div`` must be a number
+
+>>> matrix = [[1, 2, 3],[4, 5, 6]]
+>>> print(matrix_divided(matrix, "goku"))
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+::
+matrix can't be empty
+
+>>> matrix = [[]]
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+:: 
+matrix must be a list of list of integers or floats
+
+>>> matrix = []
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+matrix can't be None
+
+>>> matrix = []
+>>> print(matrix_divided(None, 3))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+:: inf not defined, do you mean float('inf')
+
+>>> matrix = [[1,2,3],[4,5,6]]
+>>> print(matrix_divided(matrix, float(inf)))
+Traceback (most recent call last):
+...
+NameError: name 'inf' is not defined
+
+::
+Use correct syntax
+
+>>> matrix = [[1,2,3],[4,5,6]]
+>>> print(matrix_divided(, float(inf)))
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+::
+value for arg ``div`` needs to be supplied
+ 
+>>> matrix = [[1,2,3],[4,5,6]]
+>>> print(matrix_divided(None, ))
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+
+::
+Provide the args ``matrix`` and ``div``
+
+>>> matrix = [[1,2,3],[4,5,6]]
+>>> print(matrix_divided(, ))
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+

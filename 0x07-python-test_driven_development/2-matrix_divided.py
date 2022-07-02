@@ -15,9 +15,15 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
+    length = len(matrix[0])
     matrix_div_result = []
     for i in range(len(matrix)):
+        if len(matrix[i]) is not length:
+            raise TypeError(error_msg2)
         matrix_div_result.append([])
         for row in matrix[i]:
-            matrix_div_result[i].append(round(row / div, 2))
+            if type(row) is int or type(row) is float:
+                matrix_div_result[i].append(round(row / div, 2))
+            else:
+                raise TypeError(error_msg1)
     return matrix_div_result
