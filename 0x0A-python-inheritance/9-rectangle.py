@@ -21,6 +21,3 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         """ Public method for printed string representation. """
         return ("[Rectangle] {}/{}".format(self.__width, self.__height))
-
-r = Rectangle(1411, 781)
-print(r)
