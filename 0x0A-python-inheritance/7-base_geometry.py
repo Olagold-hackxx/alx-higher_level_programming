@@ -20,6 +20,3 @@ class BaseGeometry:
     def area(self):
         """ Calc area of a shape"""
         raise Exception("area() is not implemented")
-
-bg = BaseGeometry
-bg.integer_validator("98", 90)
