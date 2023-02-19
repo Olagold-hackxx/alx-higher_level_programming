@@ -42,6 +42,11 @@ a list with non-integer elements will be printed without sorting.
 	>>> my_list.print_sorted()
     [4, 5, 8]
 
+:: Check if print_sorted returns a newlist
+    >>> my_list = MyList([8, 4])
+    >>> my_list.print_sorted()
+    >>> print(my_list == my_list.print_sorted)
+
 :: Non-integer elements
 	
 	>>> my_list = MyList(['one', 'three', 'two'])

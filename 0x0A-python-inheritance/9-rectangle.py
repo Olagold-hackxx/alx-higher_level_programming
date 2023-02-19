@@ -17,7 +17,7 @@ class Rectangle(BaseGeometry):
     def area(self):
         """Implementing Public method area"""
         return self.__width * self.__height
-    
+
     def __str__(self):
         """ Public method for printed string representation. """
         return ("[Rectangle] {}/{}".format(self.__width, self.__height))
