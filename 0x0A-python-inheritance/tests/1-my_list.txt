@@ -31,21 +31,24 @@ a list with non-integer elements will be printed without sorting.
 
 :: Check __str__
 
-    >>> my_list = MyList([])
-    >>> print(my_list)
-    []
+	>>> my_list = MyList([])
+	>>> print(my_list)
+	[]
 
 :: Check append()
 
     >>> my_list = MyList([8, 4])
-    >>> mylist.append(5)
+    >>> my_list.append(5)
 	>>> my_list.print_sorted()
-    [4, 5, 8]
+	[4, 5, 8]
 
 :: Check if print_sorted returns a newlist
-    >>> my_list = MyList([8, 4])
-    >>> my_list.print_sorted()
-    >>> print(my_list == my_list.print_sorted)
+
+	>>> my_list = MyList([8, 4])
+	>>> my_list.print_sorted()
+	[4, 8]
+	>>> print(my_list == my_list.print_sorted)
+	False
 
 :: Non-integer elements
 	
