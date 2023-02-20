@@ -43,6 +43,27 @@ integer_validator
 	Traceback (most recent call last):
 	TypeError: my_int must be an integer
 
+	>>> bg.integer_validator(“age”, [3])
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+	>>> bg.integer_validator(“age”, (4,))
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+	>>> bg.integer_validator(“age”, True)
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+	>>> bg.integer_validator(“age”, {3, 4})
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+	>>> bg.integer_validator(“age”, None)
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+
 :: Value less than zero
 
 	>>> bg.integer_validator('my_int', -1)
