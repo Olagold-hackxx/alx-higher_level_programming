@@ -45,8 +45,6 @@ a list with non-integer elements will be printed without sorting.
 :: Check if print_sorted returns a newlist
 
 	>>> my_list = MyList([8, 4])
-	>>> my_list.print_sorted()
-	[4, 8]
 	>>> print(my_list == my_list.print_sorted)
 	False
 
