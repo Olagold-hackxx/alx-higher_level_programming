@@ -17,6 +17,7 @@ class Student:
                     filterDict.update({key: self.__dict__[key]})
             return filterDict
         return self.__dict__
+
     def reload_from_json(self, json):
         """Replaces all attributes of a Student instance"""
         for key, value in json.items():

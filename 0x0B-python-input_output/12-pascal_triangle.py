@@ -5,11 +5,11 @@
 def pascal_triangle(n):
     """
     Print out pascal triangle
-    
-    Args: 
-        n (int): must be a number 
 
-    Return: a list of list of integers that forms pascal triangle's of n 
+    Args:
+        n (int): must be a number
+
+    Return: a list of list of integers that forms pascal triangle's of n
 
     """
 
