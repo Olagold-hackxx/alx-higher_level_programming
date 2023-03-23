@@ -5,7 +5,7 @@ In this project, I practiced file handling in Python. I used the builtin `with`,
 
 ## Tests :heavy_check_mark:
 
-* [tests](./tests): Folder of test files. Provided by Holberton School.
+* [tests](./tests): Folder of test files. Provided by ALX-Holberton School.
 
 ## Function Prototypes :floppy_disk:
 
