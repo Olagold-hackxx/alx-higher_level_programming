@@ -39,9 +39,11 @@ class Rectangle(Base):
         self.y = y
 
     def display(self):
-        """Display the rectangle by width and height"""
-        for height in range(self.height):
-            for width in range(self.width):
+        """Display the rectangle by width, height, x and y"""
+        for i in range(self.y):
+            print("")
+        for j in range(self.height):
+            for k in range(self.width):
                 print("#", end='')
             print()
 
