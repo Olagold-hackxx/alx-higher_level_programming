@@ -4,7 +4,6 @@
 
 from models.base import Base
 
-
 class Rectangle(Base):
     """
     Class `Rectangle` that inherits from `Base`:
@@ -43,7 +42,9 @@ class Rectangle(Base):
         for i in range(self.y):
             print("")
         for j in range(self.height):
-            for k in range(self.width):
+            for k in range(self.x):
+                print(" ", end='')
+            for l in range(self.width):
                 print("#", end='')
             print()
 
@@ -107,8 +108,45 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
+    def update(self, *args, **kwargs):
+        """Update values of all parameters"""
+        if args and args != 0:
+            position = 0
+            for arg in args:
+                if position == 0:
+                    self.id = arg
+                elif position == 1:
+                    self.width = arg
+                elif position == 2:
+                    self.height = arg
+                elif position == 3:
+                    self.x = arg
+                elif position == 4:
+                    self.y = arg
+                else:
+                    return
+                position += 1
+        elif kwargs and len(kwargs) != 0:
+            for i, j in kwargs.items():
+                if i == "id":
+                    self.id = j
+                elif i == "width":
+                    self.width = j
+                elif i == "height":
+                    self.height = j
+                elif i == "x":
+                    self.x = j
+                elif i == "y":
+                    self.y = j
+
+
     def __str__(self):
         """Return [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
                                                         self.y, self.width,
                                                         self.height))
+
+    def to_dictionary(self):
+         """Dictionary for attributes and values"""
+         return {"id": self.id, "height": self.height, "width": self.width,
+                "x": self.x, "y": self.y}
