@@ -43,7 +43,6 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-
     def update(self, *args, **kwargs):
         """Update values of all parameters"""
         if args and args != 0:
@@ -78,10 +77,9 @@ class Square(Rectangle):
         Return [Square] (<id>) <x>/<y> - <size>
         """
         return ("[Square] ({}) {}/{} - {}".format(self.id, self.x,
-                                                        self.y, self.height))
-    
+                                                  self.y, self.height))
+
     def to_dictionary(self):
         """Dictionary for attributes and values"""
         return {"id": self.id, "size": self.size,
                 "x": self.x, "y": self.y}
-    
