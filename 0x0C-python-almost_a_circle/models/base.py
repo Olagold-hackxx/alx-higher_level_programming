@@ -6,6 +6,7 @@ duplicating the same code (by extension, same bugs)
 import json
 from os.path import exists
 
+
 class Base:
     """
     Class Base will be the “base” of all other classes
@@ -72,7 +73,7 @@ class Base:
     def load_from_file(cls):
         filename = cls.__name__ + '.json'
         if not exists(filename):
-                return []
+            return []
 
         with open(filename, mode="r", encoding="utf-8") as f:
             json_string = f.read()
@@ -81,5 +82,3 @@ class Base:
             for i in dictionary:
                 instance.append(cls.create(**i))
             return instance
-
-
