@@ -40,8 +40,8 @@ class Square(Rectangle):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
-        self.height = value
         self.width = value
+        self.height = value
 
 
     def update(self, *args, **kwargs):
@@ -79,3 +79,9 @@ class Square(Rectangle):
         """
         return ("[Square] ({}) {}/{} - {}".format(self.id, self.x,
                                                         self.y, self.height))
+    
+    def to_dictionary(self):
+        """Dictionary for attributes and values"""
+        return {"id": self.id, "size": self.size,
+                "x": self.x, "y": self.y}
+    
