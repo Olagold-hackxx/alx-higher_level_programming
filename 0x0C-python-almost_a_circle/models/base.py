@@ -3,6 +3,7 @@
  Module that manages id attribute in all your future classes and to avoid
 duplicating the same code (by extension, same bugs)
 """
+import json
 
 
 class Base:
@@ -34,3 +35,21 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        if list_dictionaries is None:
+            return '[]'
+        return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        list_dictionary = []
+        with open(cls.__name__ + '.json', "w") as f:
+            if list_objs is None:
+                return f.write('[]')
+            else:
+                for i in list_objs:
+                    list_dictionary.append(i.to_dictionary())
+                return f.write(cls.to_json_string(list_dictionary))
+            

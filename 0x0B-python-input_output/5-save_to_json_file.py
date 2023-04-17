@@ -6,7 +6,7 @@ def save_to_json_file(my_obj, filename):
     """ Write object to text file with JSON
 
     Arguments:
-        my_obj: onject to write
+        my_obj: object to write
         filename: file to write to
     """
 
