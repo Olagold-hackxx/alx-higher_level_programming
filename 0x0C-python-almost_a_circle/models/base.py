@@ -4,7 +4,7 @@
 duplicating the same code (by extension, same bugs)
 """
 import json
-
+from os.path import exists
 
 class Base:
     """
@@ -39,7 +39,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         if list_dictionaries is None:
-            return '[]'
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -52,3 +52,34 @@ class Base:
                 for i in list_objs:
                     list_dictionary.append(i.to_dictionary())
                 return f.write(cls.to_json_string(list_dictionary))
+
+    @staticmethod
+    def from_json_string(json_string):
+        if json_string is None:
+            return '[]'
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + '.json'
+        if not exists(filename):
+                return []
+
+        with open(filename, mode="r", encoding="utf-8") as f:
+            json_string = f.read()
+            dictionary = cls.from_json_string(json_string)
+            instance = []
+            for i in dictionary:
+                instance.append(cls.create(**i))
+            return instance
+
+
