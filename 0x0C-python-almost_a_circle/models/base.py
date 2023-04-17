@@ -52,4 +52,3 @@ class Base:
                 for i in list_objs:
                     list_dictionary.append(i.to_dictionary())
                 return f.write(cls.to_json_string(list_dictionary))
-            
