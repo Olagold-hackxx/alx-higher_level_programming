@@ -4,6 +4,7 @@
 duplicating the same code (by extension, same bugs)
 """
 import json
+import turtle
 from os.path import exists
 
 
@@ -81,4 +82,66 @@ class Base:
             instance = []
             for i in dictionary:
                 instance.append(cls.create(**i))
+            return instance.__str__
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        list_dictionary = []
+        with open(cls.__name__ + '.csv', "w") as f:
+            if list_objs is None:
+                return f.write('[]')
+            else:
+                for i in list_objs:
+                    list_dictionary.append(i.to_dictionary())
+                return f.write(cls.to_json_string(list_dictionary))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        filename = cls.__name__ + '.json'
+        if not exists(filename):
+            return []
+
+        with open(filename, mode="r", encoding="utf-8") as f:
+            csv_string = f.read()
+            dictionary = cls.from_json_string(csv_string)
+            instance = []
+            for i in dictionary:
+                instance.append(cls.create(**i))
             return instance
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        tk = turtle.Screen()
+        # background color green
+        tk.bgcolor("green")
+  
+        # window title Turtle
+        tk.title("Turtle")
+
+        tkp = turtle.Turtle()
+  
+        # object color
+        tkp.color("blue")
+        for i in list_rectangles:
+            if i.x <= 5 or i.y <= 5:
+                i.x = 72
+                i.y = 5
+            for j in range(i.y):
+                for j in range(2):
+                    tkp.forward(i.width)
+                    tkp.right(90)
+                    tkp.forward(i.height)
+                    tkp.right(90)
+                tkp.rt(i.x)
+        turtle.color("red")
+        for i in list_squares:
+            if i.x <= 5 or i.y <= 5:
+                i.x = 72
+                i.y = 5
+            for j in range(i.y):
+                for k in range(4):
+                    turtle.fd(i.size)
+                    turtle.rt(90)
+                turtle.rt(i.x)
+                
+        turtle.done()
