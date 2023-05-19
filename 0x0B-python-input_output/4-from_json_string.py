@@ -3,7 +3,7 @@
 
 
 def from_json_string(my_str):
-    """ Deserialize obj to json str"""
+    """ Deserialize json str to obj"""
 
     import json
 
