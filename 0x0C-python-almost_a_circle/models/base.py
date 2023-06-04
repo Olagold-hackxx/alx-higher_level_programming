@@ -97,7 +97,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        filename = cls.__name__ + '.json'
+        filename = cls.__name__ + '.csv'
         if not exists(filename):
             return []
 
