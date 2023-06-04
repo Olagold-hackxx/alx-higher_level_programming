@@ -40,7 +40,7 @@ Usage
     <BLANKLINE>
     School?
     <BLANKLINE>
-    !
+    !  
 
 
     >>> text_indentation("hello:  " + ".wor?ld")
