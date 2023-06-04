@@ -47,6 +47,9 @@ def matrix_mul(m_a, m_b):  # must be list
     m_p = [[0 for elem in range(len_b)]
            for row in range(len(m_a))]  # match m_a rows
 
+    if len(m_a[0]) != len(m_b):
+        raise ValueError("m_a and m_b can't be multiplied")
+
     # perform multiplication
     for row_a in range(len(m_a)):
         for elem_b in range(len_b):
