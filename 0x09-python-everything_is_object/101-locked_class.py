@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ A locked class"""
+
+
 class LockedClass:
     """ Lock class atribute"""
     __slots__ = 'first_name'
