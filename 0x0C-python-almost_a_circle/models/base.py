@@ -114,12 +114,12 @@ class Base:
         tk = turtle.Screen()
         # background color green
         tk.bgcolor("green")
-  
+
         # window title Turtle
         tk.title("Turtle")
 
         tkp = turtle.Turtle()
-  
+
         # object color
         tkp.color("blue")
         for i in list_rectangles:
@@ -143,5 +143,5 @@ class Base:
                     turtle.fd(i.size)
                     turtle.rt(90)
                 turtle.rt(i.x)
-                
+
         turtle.done()
