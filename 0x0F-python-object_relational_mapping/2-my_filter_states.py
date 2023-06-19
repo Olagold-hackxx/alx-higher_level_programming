@@ -21,4 +21,5 @@ if __name__ == '__main__':
                 WHERE name = '{}' ORDER BY id ASC""".format(nameMatch))
     rows = cur.fetchall()
     for row in rows:
-        print(row)
+        if row[1][0] == 'N':
+            print(row)
