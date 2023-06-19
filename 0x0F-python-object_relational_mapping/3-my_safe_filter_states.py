@@ -11,13 +11,14 @@ if __name__ == '__main__':
     db_name = argv[3]
     nameMatch = argv[4]
 
-    db_conn = MySQLdb.connect(host='localhost',
-            port=3306,
-            user=db_user,
-            passwd=db_passwd,
-            db=db_name)
-    cur = db_conn.cursor()
-    cur.execute("SELECT id, name FROM states WHERE name = %s ORDER BY id ASC", (nameMatch,))
+    db = MySQLdb.connect(host='localhost',
+                         port=3306,
+                         user=db_user,
+                         passwd=db_passwd,
+                         db=db_name)
+    cur = db.cursor()
+    cur.execute("SELECT id, name FROM states\
+                WHERE name = %s ORDER BY id ASC", (nameMatch,))
     rows = cur.fetchall()
     for row in rows:
         print(row)
