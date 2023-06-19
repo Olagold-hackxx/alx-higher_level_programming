@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Lists all states from the database hbtn_0e_0_usa"""
+"""Lists all states with name starting with N"""
 
 import MySQLdb
 from sys import argv
@@ -15,7 +15,7 @@ if __name__ == '__main__':
             passwd=db_passwd,
             db=db_name)
     cur = db.cursor()
-    cur.execute('SELECT id, name FROM states ORDER BY states.id ASC')
+    cur.execute('SELECT id, name FROM states WHERE name REGEXP "^N" ORDER BY id ASC')
     rows = cur.fetchall()
     for row in rows:
         print(row)
