@@ -5,13 +5,14 @@ import urllib.parse
 from sys import argv
 
 
-values = {}
-values['email'] = argv[2]
-data = urllib.parse.urlencode(values)
-data = data.encode('utf8')
-req = urllib.request.Request(argv[1], data)
+if __name__ == "__main__":
+    values = {}
+    values['email'] = argv[2]
+    data = urllib.parse.urlencode(values)
+    data = data.encode('utf8')
+    req = urllib.request.Request(argv[1], data)
 
-with urllib.request.urlopen(req) as response:
-    page = response.read()
-    page = page.decode('utf8')
-    print(page)
+    with urllib.request.urlopen(req) as response:
+        page = response.read()
+        page = page.decode('utf8')
+        print(page)
