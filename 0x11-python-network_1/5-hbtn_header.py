@@ -6,5 +6,5 @@ from sys import argv
 
 if __name__ == "__main__":
     req = requests.get(argv[1])
-    header = req.headers['X-Request-Id']
+    header = req.headers.get('X-Request-Id')
     print(header)
