@@ -1,6 +1,5 @@
 $('document').ready(function () {
-const url = "https://fourtonfish.com/hellosalut/?lang=fr"
-$.get(url, function (data) {
+$.get("https://fourtonfish.com/hellosalut/?lang=fr", function (data) {
     $('DIV#hello').text(data.hello);
   });
 });
