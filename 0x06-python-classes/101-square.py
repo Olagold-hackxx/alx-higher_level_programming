@@ -19,12 +19,12 @@ class Square:
         if self.__size == 0:
             print('')
         else:
-            for y in range(self.__position[1]):
+            for _ in range(self.__position[1]):
                 print()
-            for row in range(self.__size):
-                for x in range(self.__position[0]):
+            for _ in range(self.__size):
+                for _ in range(self.__position[0]):
                     print('', end=' ')
-                for col in range(self.__size):
+                for _ in range(self.__size):
                     print('#', end='')
                 print('')
 
@@ -37,7 +37,7 @@ class Square:
         return self.__size ** 2
 
     def __str__(self):
-        if self.__size is 0:
+        if self.__size == 0:
             return ''
         else:
             return '{}'.format('\n' * self.__position[1] +
@@ -79,7 +79,7 @@ class Square:
         emess = 'position must be a tuple of 2 positive integers'
         if type(value) is not tuple:
             raise TypeError(emess)
-        if len(value) is not 2:
+        if len(value) != 2:
             raise TypeError(emess)
         if type(value[0]) is not int or value[0] < 0:
             raise TypeError(emess)

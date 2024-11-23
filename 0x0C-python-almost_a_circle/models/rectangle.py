@@ -40,12 +40,12 @@ class Rectangle(Base):
 
     def display(self):
         """Display the rectangle by width, height, x and y"""
-        for i in range(self.y):
+        for _ in range(self.y):
             print("")
-        for j in range(self.height):
-            for k in range(self.x):
+        for _ in range(self.height):
+            for _ in range(self.x):
                 print(" ", end='')
-            for k in range(self.width):
+            for _ in range(self.width):
                 print("#", end='')
             print()
 
@@ -110,35 +110,19 @@ class Rectangle(Base):
         self.__y = value
 
     def update(self, *args, **kwargs):
-        """Update values of all parameters"""
-        if args and args != 0:
-            position = 0
-            for arg in args:
-                if position == 0:
-                    self.id = arg
-                elif position == 1:
-                    self.width = arg
-                elif position == 2:
-                    self.height = arg
-                elif position == 3:
-                    self.x = arg
-                elif position == 4:
-                    self.y = arg
-                else:
-                    return
-                position += 1
-        elif kwargs and len(kwargs) != 0:
-            for i, j in kwargs.items():
-                if i == "id":
-                    self.id = j
-                elif i == "width":
-                    self.width = j
-                elif i == "height":
-                    self.height = j
-                elif i == "x":
-                    self.x = j
-                elif i == "y":
-                    self.y = j
+        """Update values of all parameters."""
+        attributes = ["id", "width", "height", "x", "y"]
+
+        # Update using args
+        for position, value in enumerate(args):
+            if position < len(attributes):
+                setattr(self, attributes[position], value)
+
+        # Update using kwargs
+        for key, value in kwargs.items():
+            if key in attributes:
+                setattr(self, key, value)
+
 
     def __str__(self):
         """Return [Rectangle] (<id>) <x>/<y> - <width>/<height>"""

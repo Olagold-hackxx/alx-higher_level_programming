@@ -44,31 +44,18 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        """Update values of all parameters"""
-        if args and args != 0:
-            position = 0
-            for arg in args:
-                if position == 0:
-                    self.id = arg
-                elif position == 1:
-                    self.size = arg
-                elif position == 2:
-                    self.x = arg
-                elif position == 3:
-                    self.y = arg
-                else:
-                    return
-                position += 1
-        elif kwargs and len(kwargs) != 0:
-            for i, j in kwargs.items():
-                if i == "id":
-                    self.id = j
-                elif i == "size":
-                    self.size = j
-                elif i == "x":
-                    self.x = j
-                elif i == "y":
-                    self.y = j
+        """Update values of all parameters."""
+        attributes = ["id", "size", "x", "y"]
+
+        # Update using args
+        for position, value in enumerate(args):
+            if position < len(attributes):
+                setattr(self, attributes[position], value)
+
+        # Update using kwargs
+        for key, value in kwargs.items():
+            if key in attributes:
+                setattr(self, key, value)
 
     def __str__(self):
         """

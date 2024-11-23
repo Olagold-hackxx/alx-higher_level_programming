@@ -25,8 +25,8 @@ import sys
 def init_board(n):
     """Initialize an `n`x`n` sized chessboard with 0's."""
     board = []
-    [board.append([]) for i in range(n)]
-    [row.append(' ') for i in range(n) for row in board]
+    [board.append([]) for _ in range(n)]
+    [row.append(' ') for _ in range(n) for row in board]
     return (board)
 
 
@@ -59,46 +59,28 @@ def xout(board, row, col):
         row (int): The row where a queen was last played.
         col (int): The column where a queen was last played.
     """
-    # X out all forward spots
-    for c in range(col + 1, len(board)):
-        board[row][c] = "x"
-    # X out all backwards spots
-    for c in range(col - 1, -1, -1):
-        board[row][c] = "x"
-    # X out all spots below
-    for r in range(row + 1, len(board)):
-        board[r][col] = "x"
-    # X out all spots above
-    for r in range(row - 1, -1, -1):
-        board[r][col] = "x"
-    # X out all spots diagonally down to the right
-    c = col + 1
-    for r in range(row + 1, len(board)):
-        if c >= len(board):
-            break
-        board[r][c] = "x"
-        c += 1
-    # X out all spots diagonally up to the left
-    c = col - 1
-    for r in range(row - 1, -1, -1):
-        if c < 0:
-            break
-        board[r][c]
-        c -= 1
-    # X out all spots diagonally up to the right
-    c = col + 1
-    for r in range(row - 1, -1, -1):
-        if c >= len(board):
-            break
-        board[r][c] = "x"
-        c += 1
-    # X out all spots diagonally down to the left
-    c = col - 1
-    for r in range(row + 1, len(board)):
-        if c < 0:
-            break
-        board[r][c] = "x"
-        c -= 1
+    def mark_line(r_step, c_step):
+        """Mark spots in a direction until out of bounds."""
+        r, c = row + r_step, col + c_step
+        while 0 <= r < len(board) and 0 <= c < len(board):
+            board[r][c] = "x"
+            r += r_step
+            c += c_step
+
+    # Mark all relevant directions
+    directions = [
+        (0, 1),   # Forward
+        (0, -1),  # Backward
+        (1, 0),   # Down
+        (-1, 0),  # Up
+        (1, 1),   # Diagonally down-right
+        (-1, -1),  # Diagonally up-left
+        (-1, 1),  # Diagonally up-right
+        (1, -1)   # Diagonally down-left
+    ]
+
+    for r_step, c_step in directions:
+        mark_line(r_step, c_step)
 
 
 def recursive_solve(board, row, queens, solutions):

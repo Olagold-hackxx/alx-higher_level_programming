@@ -19,4 +19,4 @@ class BaseGeometry:
 
     def area(self):
         """ Calc area of a shape"""
-        raise Exception("area() is not implemented")
+        raise TypeError("area() is not implemented")

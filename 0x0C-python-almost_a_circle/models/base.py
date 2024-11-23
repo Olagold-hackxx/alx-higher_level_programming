@@ -122,37 +122,51 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        tk = turtle.Screen()
-        # background color green
-        tk.bgcolor("green")
+        """Draw rectangles and squares using Turtle graphics."""
+        def initialize_turtle():
+            """Set up the Turtle screen and return the Turtle instance."""
+            tk = turtle.Screen()
+            tk.bgcolor("green")  # background color
+            tk.title("Turtle")   # window title
+            tkp = turtle.Turtle()
+            tkp.color("blue")    # object color
+            return tkp
 
-        # window title Turtle
-        tk.title("Turtle")
+        def adjust_position(shape):
+            """Ensure x and y values of a shape are within bounds."""
+            if shape.x <= 5 or shape.y <= 5:
+                shape.x, shape.y = 72, 5
 
-        tkp = turtle.Turtle()
-
-        # object color
-        tkp.color("blue")
-        for i in list_rectangles:
-            if i.x <= 5 or i.y <= 5:
-                i.x = 72
-                i.y = 5
-            for j in range(i.y):
-                for j in range(2):
-                    tkp.forward(i.width)
+        def draw_rectangle(tkp, rectangle):
+            """Draw a rectangle with Turtle."""
+            adjust_position(rectangle)
+            for _ in range(rectangle.y):
+                for _ in range(2):
+                    tkp.forward(rectangle.width)
                     tkp.right(90)
-                    tkp.forward(i.height)
+                    tkp.forward(rectangle.height)
                     tkp.right(90)
-                tkp.rt(i.x)
-        turtle.color("red")
-        for i in list_squares:
-            if i.x <= 5 or i.y <= 5:
-                i.x = 72
-                i.y = 5
-            for j in range(i.y):
-                for k in range(4):
-                    turtle.fd(i.size)
-                    turtle.rt(90)
-                turtle.rt(i.x)
+                tkp.rt(rectangle.x)
+
+        def draw_square(tkp, square):
+            """Draw a square with Turtle."""
+            adjust_position(square)
+            for _ in range(square.y):
+                for _ in range(4):
+                    tkp.forward(square.size)
+                    tkp.rt(90)
+                tkp.rt(square.x)
+
+        # Initialize Turtle
+        tkp = initialize_turtle()
+
+        # Draw rectangles
+        for rectangle in list_rectangles:
+            draw_rectangle(tkp, rectangle)
+
+        # Change color and draw squares
+        tkp.color("red")
+        for square in list_squares:
+            draw_square(tkp, square)
 
         turtle.done()
